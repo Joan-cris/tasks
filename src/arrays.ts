@@ -5,7 +5,13 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    if (numbers.length === 0) {
+        return [];
+    } else if (numbers.length === 1) {
+        return [numbers[0], numbers[0]];
+    } else {
+        return [numbers[0], numbers[numbers.length - 1]];
+    }
 }
 
 /**
@@ -13,7 +19,7 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    return numbers.map((tripleVal: number): number => tripleVal * 3);
 }
 
 /**
@@ -21,7 +27,8 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const intArr = numbers.map((str) => parseInt(str));
+    return intArr.map((str) => (isNaN(str) ? 0 : str));
 }
 
 /**
@@ -32,16 +39,26 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    const a = [...amounts];
+    const newNum = a.map((x) => (x.startsWith("$") ? x.slice(1) : x));
+    return stringsToIntegers(newNum);
 };
 
 /**
- * Consume an array of messages and return a new list of the messages. However, any
- * string that ends in "!" should be made uppercase. Also, remove any strings that end
+ * Consume an array of messages and return a new list of the messages.
+ * However, any string that ends in "!" should be made uppercase.
+ * Also, remove any strings that end
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    return (
+        messages
+            //filters messages with question marks
+            .filter((message) => !message.endsWith("?"))
+            .map((message) =>
+                message.endsWith("!") ? message.toUpperCase() : message
+            )
+    );
 };
 
 /**
@@ -49,7 +66,8 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    //filters only words less than 4 letters long, check length
+    return words.filter((word) => word.length < 4).length;
 }
 
 /**
@@ -58,7 +76,18 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    const c = colors.filter(
+        //checks if all colors are in the array
+        (color) => color !== "red" && color !== "blue" && color !== "green"
+    );
+    //checks if array is empty
+    if (colors.length == 0) {
+        return true;
+    } else if (c.length == 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -69,7 +98,17 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    //add numbers, set to 0, produce sum
+    const val = addends.reduce((total, num) => total + num, 0);
+    let sum;
+    //empty array
+    if (val == 0) {
+        sum = "0";
+    } else {
+        //non-empty array, add values separated by "+" in string
+        sum = addends.join("+");
+    }
+    return val + "=" + sum;
 }
 
 /**
@@ -82,5 +121,26 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    let sum = 0;
+    let nNum = false;
+    const result: number[] = [];
+
+    for (let i = 0; i < values.length; i++) {
+        if (values[i] < 0 && !nNum) {
+            //if there is a first negative
+            nNum = true;
+            //Insert sum of values and negative number
+            result.push(values[i]);
+            result.push(sum);
+        } else {
+            //sum plus the values in the array
+            sum += values[i];
+            result.push(values[i]);
+        }
+    }
+    //No negatives in array
+    if (!nNum) {
+        result.push(sum);
+    }
+    return result;
 }
