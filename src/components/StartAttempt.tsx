@@ -27,10 +27,10 @@ export function StartAttempt(): JSX.Element {
                     onClick={startQuiz}
                     disabled={quizInProgress || attempts < 1}
                 >
-                    Starts Quiz
+                    Start Quiz
                 </Button>
                 <Button onClick={stopQuiz} disabled={!quizInProgress}>
-                    Stops Quiz
+                    Stop Quiz
                 </Button>
                 <Button onClick={Mulligan} disabled={quizInProgress}>
                     Mulligan
