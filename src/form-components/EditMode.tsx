@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
 export function EditMode(): JSX.Element {
-    const [edt, setEdt] = useState<boolean>(false);
+    const [edit, setEdit] = useState<boolean>(false);
     const [name, setName] = useState<string>("Your name is a student:");
     const [studentStat, setStudentStat] = useState<boolean>(true);
 
     function updateEdit(event: React.ChangeEvent<HTMLInputElement>) {
-        setEdt(event.target.checked);
+        setEdit(event.target.checked);
     }
 
     function updateName(event: React.ChangeEvent<HTMLInputElement>) {
@@ -38,15 +38,15 @@ export function EditMode(): JSX.Element {
                     type="switch"
                     id="inEditMode"
                     label="Edit Mode"
-                    checked={edt}
+                    checked={edit}
                     onChange={updateEdit}
                 />
                 <div>
-                    The user is {edt ? "in Edit Mode" : "not in Edit Mode"}.{" "}
+                    The user is {edit ? "in Edit Mode" : "not in Edit Mode"}.{" "}
                 </div>
-                {edt ? editM : ""}
+                {edit ? editM : ""}
             </div>
-            {edt ? (
+            {edit ? (
                 <Form.Group controlId="editName">
                     <Form.Label>New Name:</Form.Label>
                     <Form.Control
@@ -58,7 +58,7 @@ export function EditMode(): JSX.Element {
             ) : (
                 <div></div>
             )}
-            {edt ? (
+            {edit ? (
                 <Form.Check
                     type="checkbox"
                     id="studentStatus"
