@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 //set interface w used function vals
-interface ShoveBoxButtonProps {
-    position: number;
-    setPosition: (newPosition: number) => void;
-}
 
 function ShoveBoxButton({
     position,
