@@ -1,31 +1,26 @@
 import React from "react";
 import "./App.css";
-<<<<<<< HEAD
+
 import udimage from "./udimage.jpg";
 import { Button, Col, Container, Row } from "react-bootstrap";
-=======
+
 import { ChangeType } from "./components/ChangeType";
 import { RevealAnswer } from "./components/RevealAnswer";
 import { StartAttempt } from "./components/StartAttempt";
 import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
-<<<<<<< HEAD
->>>>>>> upstream/task-state
-=======
+
 import { DoubleHalf } from "./bad-components/DoubleHalf";
 import { ColoredBox } from "./bad-components/ColoredBox";
 import { ShoveBox } from "./bad-components/ShoveBox";
 import { ChooseTeam } from "./bad-components/ChooseTeam";
-<<<<<<< HEAD
->>>>>>> upstream/task-components
-=======
+
 import { CheckAnswer } from "./form-components/CheckAnswer";
 import { GiveAttempts } from "./form-components/GiveAttempts";
 import { EditMode } from "./form-components/EditMode";
 import { MultipleChoiceQuestion } from "./form-components/MultipleChoiceQuestion";
 import { ChangeColor } from "./form-components/ChangeColor";
->>>>>>> upstream/task-forms
 
 function App(): JSX.Element {
     return (
@@ -35,7 +30,6 @@ function App(): JSX.Element {
                 <h2>Joanna Crisomia</h2>
                 <img src={udimage} alt="UD logo" />
             </header>
-<<<<<<< HEAD
             <p>Hello World</p>
             <ul>
                 <li>Class of 2024</li>
@@ -75,7 +69,6 @@ function App(): JSX.Element {
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
-=======
             <hr></hr>
             <CheckAnswer expectedAnswer="42"></CheckAnswer>
             <hr></hr>
@@ -109,7 +102,6 @@ function App(): JSX.Element {
             <ChangeType></ChangeType>
             <hr />
             <CycleHoliday></CycleHoliday>
->>>>>>> upstream/task-state
         </div>
     );
 }
