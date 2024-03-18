@@ -28,8 +28,8 @@ export function TwoDice(): JSX.Element {
                 <span data-testid="right-die">{rightDie}</span>
             </div>
             <div>
-                <Button onClick={rollLeft}>Rolls left</Button>
-                <Button onClick={rollRight}>Rolls right</Button>
+                <Button onClick={rollLeft}>Roll left</Button>
+                <Button onClick={rollRight}>Roll right</Button>
             </div>
             <div>
                 {leftDie === 1 && rightDie === 1 ? (
